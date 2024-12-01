@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="image-thumbnail-carousel">
+      <section class="image-display">
+        <div class="screen">
+          <img loading="lazy" src="images/1.jpg" alt="main-img" />
+        </div>
+        <button
+          type="button"
+          class="carousel__btn prev"
+          aria-label="Previous slide"
+        >
+          <svg
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="arrow-icon arrow-left-circle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+            />
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="carousel__btn next"
+          aria-label="Next slide"
+        >
+          <svg
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="arrow-icon arrow-right-circle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+            />
+          </svg>
+        </button>
+        <div class="pagination" id="pagination"></div>
+      </section>
+
+      <section class="thumbnail-carousel">
+        <ul class="carousel__slider">
+          <li class="carousel__slide">
+            <div class="thumbnail">
+              <img loading="lazy" src="images/1.jpg" alt="image-1" />
+            </div>
+          </li>
+          <li class="carousel__slide">
+            <div class="thumbnail">
+              <img loading="lazy" src="images/2.jpg" alt="image-2" />
+            </div>
+          </li>
+          <li class="carousel__slide">
+            <div class="thumbnail">
+              <img loading="lazy" src="images/3.jpg" alt="image-3" />
+            </div>
+          </li>
+          <li class="carousel__slide">
+            <div class="thumbnail">
+              <img loading="lazy" src="images/4.jpg" alt="image-4" />
+            </div>
+          </li>
+          <li class="carousel__slide">
+            <div class="thumbnail">
+              <img loading="lazy" src="images/5.jpg" alt="image-5" />
+            </div>
+          </li>
+          <li class="carousel__slide">
+            <div class="thumbnail">
+              <img loading="lazy" src="images/6.jpg" alt="image-6" />
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
