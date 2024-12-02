@@ -83,19 +83,40 @@ const pauseSlideShow = () => {
 };
 mainContainer.addEventListener("mouseover", pauseSlideShow);
 
-//* Swipe Function *//
-let xPos;
-const touchStart = (event) => {
-  event.preventDefault();
-  xPos = event.pageX;
+//* Swipe Functions *//
+const handleSwipeStart = (e) => {
+  if (e.type === "mousedown") {
+    e.preventDefault();
+    swipeStartX = e.pageX;
+  } else if (e.type === "touchstart") {
+    swipeStartX = e.changedTouches[0].pageX;
+  }
 };
 
-const touchEnd = (event) => {
-  if (event.pageX < xPos) {
-    nextSlide();
-  } else {
+const handleSwipeEnd = (e) => {
+  if (e.type === "mouseup") {
+    e.preventDefault();
+    swipeEndX = e.pageX;
+  } else if (e.type === "touchend") {
+    swipeEndX = e.changedTouches[0].pageX;
+  }
+
+  handleSwipe();
+};
+
+const handleSwipe = () => {
+  const currentSwipeDistanceX = swipeEndX - swipeStartX;
+
+  if (currentSwipeDistanceX > 20) {
     prevSlide();
   }
+
+  if (currentSwipeDistanceX < -20) {
+    nextSlide();
+  }
+
+  swipeStartX = 0;
+  swipeEndX = 0;
 };
 
 //* Runs when the DOM is fully loaded (similar to useEffect or componentDidMount in React) *//
@@ -104,10 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
   startSlideShow();
   handlePagination();
 
-  mainContainer.addEventListener("mousedown", touchStart);
-  mainContainer.addEventListener("touchstart", touchStart);
-  mainContainer.addEventListener("mouseup", touchEnd);
-  mainContainer.addEventListener("touchend", touchEnd);
+  mainContainer.addEventListener("mousedown", handleSwipeStart);
+  mainContainer.addEventListener("touchstart", handleSwipeStart);
+  mainContainer.addEventListener("mouseup", handleSwipeEnd);
+  mainContainer.addEventListener("touchend", handleSwipeEnd);
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") {
